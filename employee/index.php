@@ -13,26 +13,25 @@ include '../Api/security.php';
 include_once '../navbar.php';
 ?>
 <div class="card-body">
-
-<h4>Создание сотрудника</h4>
-<form method="POST" action='/api/employee/add.php'>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">ФИО сотрудника</label>
-    <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Ivanov Ivan Ivanych" required>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Должность</label>
-    <select class="form-control" id="exampleFormControlSelect1" name="position" required>
-      <option value="Loader">Loader</option>
-      <option value="Designer">Designer</option>
-      <option value="Accountant">Accountant</option>
-      <option value="Marketer">Marketer</option>
-      <option value="Manager">Manager</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <input type="submit" class="btn btn-primary" value="Добавить сотрудника" />
-  </div>
+  <h4>Создание сотрудника</h4>
+  <form method="POST" action='/api/employee/add.php'>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">ФИО сотрудника</label>
+      <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Ivanov Ivan Ivanych" required>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Должность</label>
+      <select class="form-control" id="exampleFormControlSelect1" name="position" required>
+        <option value="Loader">Loader</option>
+        <option value="Designer">Designer</option>
+        <option value="Accountant">Accountant</option>
+        <option value="Marketer">Marketer</option>
+        <option value="Manager">Manager</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <input type="submit" class="btn btn-primary" value="Добавить сотрудника" />
+    </div>
 </form>
 
 
@@ -51,13 +50,12 @@ include_once '../navbar.php';
     require_once '../Api/database.php';
     $conn->set_charset("utf8");
     $sql = 'SELECT * FROM `Workers3`';
-    $workers = array();
     $res = $conn->query($sql);
     if ($res->num_rows > 0) {
         while ($row = $res->fetch_assoc()) {
         ?>
           <tr>
-            <th scope="row"><a href='./api/employee/delete.php?id=<?php echo "$row[Workers_number]" ?>'>❌</a></th>
+            <td scope="row"><a href='./api/employee/delete.php?id=<?php echo "$row[Workers_number]" ?>'>❌</a></td>
             <td><?php echo $row['Workers_number'] ?></td>
             <td><?php echo $row['Wrk_name']?></td>
             <td><?php echo $row['Wrk_position']?></td>

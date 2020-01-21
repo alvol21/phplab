@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>BOLMA | Лабораторная работа №6</title>
+    <title>AppleShop.RU</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <scridockpt src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -60,7 +60,6 @@ include_once '../navbar.php';
               require_once '../Api/database.php';
               $conn->set_charset("utf8");
               $sql = 'SELECT * FROM `Product3`';
-              $workers = array();
               $res = $conn->query($sql);
               if ($res->num_rows > 0) {
                   while ($row = $res->fetch_assoc()) {
@@ -77,7 +76,7 @@ include_once '../navbar.php';
           </div>
           <div class="tab-pane" id="2a">
           <h4>Новый материал</h4>
-          <form method="POST" action='/api/goods/add.php'>
+          <form method="POST" action='/api/material/add.php'>
           <div class="form-group">
               <label for="exampleFormControlInput1">Артикул материала</label>
               <input type="number" name="id" class="form-control" id="exampleFormControlInput1" placeholder="10000" required>

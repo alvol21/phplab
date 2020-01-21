@@ -11,6 +11,7 @@
 <body>
 <?php 
 session_start();
+// Авторизован ли пользователь
 if(!isset($_SESSION['authed'])){ ?>
     <center>
         <div class="container login-container" id="loginForm">
@@ -19,6 +20,7 @@ if(!isset($_SESSION['authed'])){ ?>
                     <img src="./assets/images/logo.png" height="165" width="256" style="margin-top:10%"/>                    
                 </div>
                 <div class="col-md-6 login-form-2">
+                    <!-- Форма авторизации!-->
                     <form method="POST" style="margin-top:20%" action="api/user/auth.php">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Логин" value="" name="username" />
